@@ -11,10 +11,11 @@ function auth() {
     user_records = JSON.parse(localStorage.getItem("users")) ? JSON.parse(localStorage.getItem("users")) : []
     if (user_records.some((v) => { return v.email == email && v.pwd == pwd })) {
         alert("Login Pass");
+        window.location.href = 'http://localhost/guvi/profile.html';
         let current_user = user_records.filter((v) => { return v.email == email && v.psw == pwd })[0]
         localStorage.setItem('name', current_user.name);
         localStorage.setItem('email', current_user.email);
-        // window.location.href = ""
+
     } else {
         alert('Login Fail');
     }
